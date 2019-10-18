@@ -1,0 +1,11 @@
+{
+    "java.home": "/Library/Java/JavaVirtualMachines/openjdk-12.0.2.jdk/Contents/Home",
+    "maven.executable.path": "/usr/local/Cellar/maven/3.6.1/libexec/bin/mvn",
+    "java.configuration.maven.userSettings": "/usr/local/Cellar/maven/3.6.1/libexec/conf/settings.xml",
+    "maven.terminal.customEnv": [
+        {
+            "environmentVariable": "JAVA_HOME",
+            "value": "/Library/Java/JavaVirtualMachines/openjdk-12.0.2.jdk/Contents/Home"
+        }
+    ],
+}
