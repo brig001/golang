@@ -1,0 +1,9 @@
+jwt-rsa
+*.log
+*.exe
+*.exe~
+*.test
+debug
+.vscode
+.idea/
+.DS_Store
