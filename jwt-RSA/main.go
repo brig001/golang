@@ -59,12 +59,17 @@ func Signed() (string, error) {
 //验证并解析token
 func VerifyToken(token string) (*jwt.Token, error) {
 	PubKeyValue := []byte(RSA_PublicKey)
-	PubKey, err := jwt.ParseRSAPublicKeyFromPEM(PubKeyValue)
-	if err != nil {
-		panic(err.Error())
-	}
+
+	// fmt.Println(PubKey)
 	ss, err := jwt.ParseWithClaims(token, &jwt.StandardClaims{}, func(token *jwt.Token) (interface{}, error) {
-		return PubKey, nil
+		// if !token.Valid {
+		// 	return nil, errors.New("token is invalid...")
+		// }
+		PubKey, err := jwt.ParseRSAPublicKeyFromPEM(PubKeyValue)
+		if err != nil {
+			panic(err.Error())
+		}
+		return PubKey, token.Claims.Valid()
 	})
 	fmt.Printf("%v %v", ss, err)
 	return ss, err

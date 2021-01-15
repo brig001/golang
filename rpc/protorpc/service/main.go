@@ -3,7 +3,7 @@ package main
 import (
 	"errors"
 	"fmt"
-    "protorpc-service/pb"
+	"protorpc-service/pb"
 )
 
 // 算术运算结构体
@@ -12,12 +12,14 @@ type Arith struct {
 
 // 乘法运算方法
 func (this *Arith) Multiply(req *pb.ArithRequest, res *pb.ArithResponse) error {
+	fmt.Println("Arith) Multiply:")
 	res.Pro = req.GetA() * req.GetB()
 	return nil
 }
 
 // 除法运算方法
 func (this *Arith) Divide(req *pb.ArithRequest, res *pb.ArithResponse) error {
+	fmt.Println("Arith) Divide:")
 	if req.GetB() == 0 {
 		return errors.New("divide by zero")
 	}
@@ -28,6 +30,7 @@ func (this *Arith) Divide(req *pb.ArithRequest, res *pb.ArithResponse) error {
 
 // 加法方法
 func (this *Arith) Add(req *pb.ArithRequest, res *pb.ArithResponse) error {
+	fmt.Println("Arith) Add:")
 	res.Pro = req.GetA() + req.GetB()
 	return nil
 }
